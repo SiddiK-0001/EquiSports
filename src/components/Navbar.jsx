@@ -82,16 +82,16 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex flex-col md:flex-row gap-2 items-center">
-                                <div className="mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-3xl bg-black shadow-lg border border-yellow-600">
+                                <div className="mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-3xl bg-[#193806] shadow-lg border border-[#69fe0f]">
                                     <img className="rounded-full w-7 h-7" src={user?.photoURL
                                     } alt="" />
-                                    <p className="text-white text-lg">{user?.displayName}</p>
+                                    <p className="text-slate-100 text-lg">{user?.displayName}</p>
                                 </div>
                                 {/* <a className=" mr-2">{user?.email}</a> */}
                                 <button onClick={handleOut} className="btn bg-[#69fe0f] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
                             </div>
                             :
-                            <NavLink className="btn border-none bg-[#69fe0f] text-lg font-bold text-black" to='/login'>Log in</NavLink>
+                            <NavLink className="btn rounded-3xl border-none bg-[#69fe0f] text-lg font-bold text-black" to='/login'>Log in</NavLink>
                     }
                 </div>
             </div>
