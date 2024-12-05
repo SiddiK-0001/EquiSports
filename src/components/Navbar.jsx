@@ -43,7 +43,7 @@ const Navbar = () => {
             }
         </>
     return (
-        <div className="text-white py-3 ">
+        <div className="text-white px-2">
 
             <div className="navbar ">
                 <div className="navbar-start">
@@ -64,16 +64,16 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu font-semibold menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {links}
 
                         </ul>
                     </div>
-                    <a className="font-bold text-5xl"><span className="text-[#69fe0f] ">Equi</span>Sports</a>
-                    <img className="w-20" src={sport} alt="" />
+                    <a className="font-bold text-3xl"><span className="text-[#69fe0f] ">Equi</span>Sports</a>
+                    <img className="w-16" src={sport} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu gap-3 font-semibold text-lg menu-horizontal px-1">
+                    <ul className="menu gap-3 text-lg menu-horizontal px-1">
                         {links}
 
                     </ul>
@@ -82,12 +82,20 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex flex-col md:flex-row gap-2 items-center">
-                                <div className="mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-3xl bg-[#193806] shadow-lg border border-[#69fe0f]">
+                                <div className="mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-full bg-[#193806] shadow-lg border border-[#69fe0f] "
+                                title={user?.displayName || "No Name"}>
                                     <img className="rounded-full w-7 h-7" src={user?.photoURL
                                     } alt="" />
-                                    <p className="text-slate-100 text-lg">{user?.displayName}</p>
+                                    
                                 </div>
-                                {/* <a className=" mr-2">{user?.email}</a> */}
+
+                                {/* <div className="relative mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-full bg-[#193806] shadow-lg border border-[#69fe0f] group">
+                                    <img className="rounded-full w-7 h-7" src={user?.photoURL} alt="" />
+                                    
+                                    <div className="absolute bottom-full hidden group-hover:block bg-black text-white text-xs  px-2 py-1">
+                                        {user?.displayName || "No Name"}
+                                    </div>
+                                </div> */}
                                 <button onClick={handleOut} className="btn bg-[#69fe0f] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
                             </div>
                             :

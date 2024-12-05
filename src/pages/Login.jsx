@@ -23,7 +23,7 @@ const Login = () => {
     const emailRefoo = useRef();
     const navigate = useNavigate();
 
-    const { loginUser,signInWithGoogle,setLoginEmail } = useContext(Authcontext)
+    const { loginUser,signInWithGoogle } = useContext(Authcontext)
 
     const handleEye = () => {
         setEye(!eye)
@@ -89,7 +89,7 @@ const Login = () => {
 
             })
             .catch(error => {
-                setError(error.message)
+                // setError(error.message)
             })
 
 
@@ -107,7 +107,7 @@ const Login = () => {
         })
 
         .catch((error) => {
-          console.log(error)
+        //   console.log(error)
         });
     }
     else{        
