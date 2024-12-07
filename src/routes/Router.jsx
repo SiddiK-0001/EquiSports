@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Layout from "../layout/Layout";
+import ViewDetails from "../pages/ViewDetails";
 
 
 
@@ -21,7 +22,8 @@ const Router = createBrowserRouter([
         },
         {
             path: "/all",
-            element:<AllEquipment></AllEquipment>
+            element:<AllEquipment></AllEquipment>,
+            loader: ()=>fetch('http://localhost:3000/equi')
         },
         {
             path: "/add",
@@ -31,6 +33,7 @@ const Router = createBrowserRouter([
             path: "/my",
             element:<PrivateRoute><My></My></PrivateRoute>
         },
+     
     ]
 },
 {

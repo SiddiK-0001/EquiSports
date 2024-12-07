@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 import './Banner.css';
 
 // import required modules
-import { Navigation, } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 export default function Banner() {
     const slides = [
@@ -37,7 +37,8 @@ export default function Banner() {
     <>
       <Swiper
        
-        navigation={true}    
+        navigation={true} 
+        rewind={true}   
         keyboard={true}
         modules={[Navigation]}
         className="mySwiper"
@@ -51,7 +52,7 @@ export default function Banner() {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex  ">
                 <div className='flex flex-col justify-center items-start text-left text-white px-20 w-3/4'>
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">{slide.title}</h1>
-                <p className="text-lg md:text-xl">{slide.subtitle}</p>
+                <p className="text-sm md:text-xl">{slide.subtitle}</p>
                 </div>
                 <div>
 

@@ -69,8 +69,8 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="font-bold text-3xl"><span className="text-[#69fe0f] ">Equi</span>Sports</a>
-                    <img className="w-16" src={sport} alt="" />
+                    <a className="font-bold text-xl md:text-3xl"><span className="text-[#69fe0f] ">Equi</span>Sports</a>
+                    <img className="w-12 md:w-16" src={sport} alt="" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu gap-3 text-lg menu-horizontal px-1">
@@ -81,8 +81,8 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ?
-                            <div className="flex flex-col md:flex-row gap-2 items-center">
-                                <div className="mr-2 flex flex-col md:flex-row gap-2 btn h-10 btn-sm rounded-full bg-[#193806] shadow-lg border border-[#69fe0f] "
+                            <div className="flex flex-col justify-end md:flex-row gap-2 items-center">
+                                <div className=" btn h-10 btn-xs rounded-full bg-[#193806] shadow-lg border border-[#69fe0f] "
                                 title={user?.displayName || "No Name"}>
                                     <img className="rounded-full w-7 h-7" src={user?.photoURL
                                     } alt="" />
@@ -96,7 +96,7 @@ const Navbar = () => {
                                         {user?.displayName || "No Name"}
                                     </div>
                                 </div> */}
-                                <button onClick={handleOut} className="btn bg-[#69fe0f] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
+                                <button onClick={handleOut} className="btn btn-sm md:btn-md bg-[#69fe0f] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
                             </div>
                             :
                             <NavLink className="btn rounded-3xl border-none bg-[#69fe0f] text-lg font-bold text-black" to='/login'>Log in</NavLink>

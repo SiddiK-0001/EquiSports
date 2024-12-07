@@ -1,14 +1,11 @@
 
-body {
-  position: relative;
-  height: 100%;
-}
+
 
 body {
-  background: #eee;
+
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
+  
+  
 }
 
 .swiper {
@@ -28,3 +25,17 @@ body {
   align-items: center;
 }
 
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  font-size: 20px; 
+   
+  transition: opacity 0.3s ease;
+}
+
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity:0.4; 
+}
