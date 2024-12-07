@@ -26,19 +26,19 @@ const Home = () => {
       </div>
 
       <div className=" grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 p-4 text-center text-3xl">
-        <div className="bg-[#010535] text-white p-4 rounded shadow col-span-2 row-span-2 bg-[url('https://i.pinimg.com/236x/26/8d/a6/268da6a56d727808bcd316e393fd8515.jpg')] bg-blend-overlay bg-opacity-90 flex justify-center items-center min-h-[250px]">
+        <div className="bg-[#010535] text-white p-4 rounded shadow col-span-2 row-span-2 bg-[url('https://i.pinimg.com/236x/26/8d/a6/268da6a56d727808bcd316e393fd8515.jpg')] bg-blend-overlay bg-opacity-90 flex justify-center items-center">
          Cricket
         </div>
         <div className= "bg-[url('https://i.pinimg.com/236x/6b/38/ef/6b38ef66e69c53fc92a56766ff56adff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#1a500d] text-white p-4 rounded shadow col-span-1 flex justify-center items-center min-h-[150px]">
           Football
         </div>
-        <div className="bg-[url('https://i.pinimg.com/236x/e6/ee/1e/e6ee1e5a56e5f5dc7dd32fef9a9eb1c1.jpg')] bg-blend-overlay bg-opacity-90 bg-[#7a1010] text-white p-4 rounded shadow col-span-1 flex justify-center items-center min-h-[200px]">
+        <div className="bg-[url('https://i.pinimg.com/236x/e6/ee/1e/e6ee1e5a56e5f5dc7dd32fef9a9eb1c1.jpg')] bg-blend-overlay bg-opacity-90 bg-[#7a1010] text-white p-4 rounded shadow col-span-1 flex justify-center items-center min-h-[150px]">
           Badminton
         </div>
         <div className="bg-[url('https://i.pinimg.com/736x/0e/31/d6/0e31d65535eca10ee6abbda209dc8824.jpg')] bg-blend-overlay bg-opacity-90 bg-[#615e0d] text-white p-4 rounded shadow col-span-2 row-span-2 flex justify-center items-center">
           BasketBall
         </div>
-        <div className="bg-[url('https://i.pinimg.com/236x/eb/a8/89/eba889b9b863b4d3f8b7ebfa15199eff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow col-span-2 flex justify-center items-center min-h-[150px]">
+        <div className="bg-[url('https://i.pinimg.com/236x/eb/a8/89/eba889b9b863b4d3f8b7ebfa15199eff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow col-span-2 flex justify-center items-center ">
           Clothing
         </div>
       </div>
@@ -63,9 +63,61 @@ const Home = () => {
             items.slice(0, 8).map(item => <Product key={item._id} itemOne={item}></Product>)
           }
 
+
         </div>
       </div>
 
+
+      {/* review section  */}
+
+
+      <div class="bg-gray-100 p-6">
+  <h2 class="text-3xl font-bold text-center mb-6">What Our Customers Say</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Excellent cricket bat quality!"</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐⭐
+      </div>
+      <p class="mt-4 text-gray-500">- Alex Morgan</p>
+    </div>
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Fast delivery, highly recommend!"</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐☆
+      </div>
+      <p class="mt-4 text-gray-500">- Jamie Lee</p>
+    </div>
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Affordable and durable gear."</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐⭐
+      </div>
+      <p class="mt-4 text-gray-500">- Taylor Adams</p>
+    </div>
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Basketball shoes fit perfectly!"</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐⭐
+      </div>
+      <p class="mt-4 text-gray-500">- Chris Evan</p>
+    </div>
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Customer service was excellent."</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐⭐
+      </div>
+      <p class="mt-4 text-gray-500">- Riley Brooks</p>
+    </div>
+    <div class="bg-white shadow p-4 rounded text-center">
+      <p class="text-xl font-semibold">"Love the quality of my new jersey."</p>
+      <div class="text-yellow-500 flex justify-center mt-2">
+        ⭐⭐⭐⭐☆
+      </div>
+      <p class="mt-4 text-gray-500">- Sam Parker</p>
+    </div>
+  </div>
+</div>
 
 
 
