@@ -4,7 +4,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 const Product = ({ itemOne }) => {
     return (
         <div className='w-full h-full'>
-            <div className="bg-opacity-55 px-2 py-3 text-black  bg-[#6cff1e]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
+            <div className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
 
 
                 <img className=" h-56 w-full  object-cover rounded-xl " src={itemOne.image} alt="" />
