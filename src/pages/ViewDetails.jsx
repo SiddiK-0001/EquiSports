@@ -5,7 +5,7 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 const ViewDetails = () => {
     const item = useLoaderData();
     
-    console.log(item)
+    // console.log(item)
 
   
     return (
