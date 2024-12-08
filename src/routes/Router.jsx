@@ -34,7 +34,7 @@ const Router = createBrowserRouter([
             {
                 path: "/my",
                 element: <PrivateRoute><My></My></PrivateRoute>,
-                loader: () => fetch('http://localhost:3000/equi')
+            
             },
 
             {

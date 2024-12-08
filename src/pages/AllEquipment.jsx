@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllEquipment = () => {
-    const items = useLoaderData();
+    const initialItems = useLoaderData();
+    const [items, setItems] = useState(initialItems);
+
+    const handleSort = () => {  
+        const sortedItems = [...items].sort((a, b) => b.price - a.price);
+        setItems(sortedItems);
+    };
     return (
         <div>
             <div >
@@ -15,7 +21,9 @@ const AllEquipment = () => {
                             <th>Name</th>
                             <th className="hidden md:table-cell">Description</th>
                             <th className="hidden md:table-cell">Price</th>
-                            <th></th>
+                            <th >
+                                <button onClick={handleSort} className='btn bg-[#71ff19b8] text-black rounded-3xl'>
+                                Sort by price </button></th>
                         </tr>
                     </thead>
                     <tbody >

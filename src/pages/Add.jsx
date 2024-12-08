@@ -27,7 +27,9 @@ const Add = () => {
       rating,
       customization,
       processingTime,
-      stockStatus}
+      stockStatus,
+      userEmail: user.email,
+    }
 
 
     fetch("http://localhost:3000/equi", {

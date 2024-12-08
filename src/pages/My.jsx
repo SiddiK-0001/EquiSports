@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Authcontext } from '../provider/AuthProvider';
 
 const My = () => {
-    const itemss = useLoaderData();
-    const [items, setitems] = useState(itemss)
+    const { user, loading } = useContext(Authcontext); 
+    const [items, setitems] = useState([])
+    useEffect(() => {
+        if (!loading && user?.email) {
+            fetch(`http://localhost:3000/equi?userEmail=${user.email}`) 
+                .then(res => res.json())
+                .then(data => setitems(data));
+        }
+    }, [user, loading]);
     const handleDelete = (_id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -41,7 +49,7 @@ const My = () => {
     return (
         <div>
 
-            <div className='flex items-center justify-center gap-3 mt-6 '>
+            <div className='flex items-center justify-center mt-6 '>
                 <div className='h-px flex-grow bg-[#69e61c]'>
                 </div>
                 <div>
@@ -54,10 +62,11 @@ const My = () => {
 
             <div className="bg-cover bg-center bg-[url('https://i.pinimg.com/736x/b9/5e/34/b95e3402e0301cf3f3ab308147d81bcf.jpg')] bg-blend-overlay bg-black bg-opacity-75">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 place-items-center w-11/12 mx-auto my-4 py-7">
-                    {/* grid er khetre place-item diye center e ana lage */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 w-11/12  mx-auto my-4 py-7">
+                    
                     {
-                        items.map(item => <div key={item._id} className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
+                        items.map(item => 
+                        <div key={item._id} className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
 
 
                             <img className=" h-56 w-full  object-cover rounded-xl " src={item.image} alt="" />
