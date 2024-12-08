@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Authcontext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useLoaderData } from 'react-router-dom';
 
-const Add = () => {
-  const {user}= useContext(Authcontext);
+const Update = () => {
+  const {user: authUser}= useContext(Authcontext);
+  
+  const user = useLoaderData();
+  console.log("item",user)
 
 
 
@@ -14,11 +18,11 @@ const Add = () => {
     const image = e.target.image.value;
     const categoryName = e.target.categoryName.value;
     const description = e.target.description.value;
-    const price = e.target.price.value;
-    const rating = e.target.rating.value;
+    const price = parseFloat(e.target.price.value);
+    const rating = parseFloat(e.target.rating.value);
     const customization = e.target.customization.value;
     const processingTime = e.target.processingTime.value;
-    const stockStatus = e.target.stockStatus.value;
+    const stockStatus = parseInt(e.target.stockStatus.value);
 
     const formData ={ itemName,image,
       categoryName,
@@ -30,8 +34,8 @@ const Add = () => {
       stockStatus}
 
 
-    fetch("http://localhost:3000/equi", {
-      method: "POST",
+    fetch(`http://localhost:3000/equi/${user._id}`, {
+      method: "PUT",
       headers: {
          "content-Type": "application/json"
          },
@@ -41,21 +45,20 @@ const Add = () => {
       .then((data) => {
         
       //  console.log(data)
-                if (data.insertedId) {
+                if (data.modifiedCount) {
                     Swal.fire({
-                        title: "Successfully Added",
-
+                        title: "Successfully Updated",
                         icon: "success"
                     });
-                    
+                    e.target.reset();
                 }
       })
-     
+      
   };
   return (
     <div>
 
-      <p className='text-center text-3xl md:text-6xl my-4'>Add a <span className='text-[#69fe0f] '>New</span> Equipment</p>
+      <p className='text-center text-3xl md:text-6xl my-4'>Update <span className='text-[#69fe0f] '>Your</span> Equipment</p>
 
       <form
         onSubmit={handleSubmit}
@@ -71,6 +74,7 @@ const Add = () => {
             name="image"          
             className="w-full border rounded px-3 py-2"
             placeholder="Enter image URL"
+            defaultValue={user.image}
             required
           />
         </div>
@@ -83,6 +87,7 @@ const Add = () => {
             name="itemName"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter item name"
+            defaultValue={user.itemName}
             required
           />
         </div>
@@ -95,6 +100,7 @@ const Add = () => {
             name="categoryName"  
             className="w-full border rounded px-3 py-2"
             placeholder="Enter category name"
+            defaultValue={user.categoryName}
             required
           />
         </div>
@@ -106,6 +112,7 @@ const Add = () => {
             name="description"            
             className="w-full border rounded px-3 py-2"
             placeholder="Enter item description"
+            defaultValue={user.description}
             required
           />
         </div>
@@ -118,6 +125,7 @@ const Add = () => {
             name="price"                      
             className="w-full border rounded px-3 py-2"
             placeholder="Enter price"
+            defaultValue={user.price}
             required
           />
         </div>
@@ -126,10 +134,11 @@ const Add = () => {
         <div>
           <label className="form-control font-medium mb-1">Rating</label>
           <input
-            type="text"
+            type="number"
             name="rating"                      
             className="w-full border rounded px-3 py-2"
             placeholder="Enter rating (1-5)"
+            defaultValue={user.rating}
             required
             
           />
@@ -143,6 +152,7 @@ const Add = () => {
             name="customization"                       
             className="w-full border rounded px-3 py-2"
             placeholder="Enter customization details"
+            defaultValue={user.customization}
             required
           />
         </div>
@@ -155,6 +165,7 @@ const Add = () => {
             name="processingTime"                      
             className="w-full border rounded px-3 py-2"
             placeholder="Enter processing/delivery time"
+            defaultValue={user.processingTime}
             required
           />
         </div>
@@ -167,6 +178,7 @@ const Add = () => {
             name="stockStatus"                     
             className="w-full border rounded px-3 py-2"
             placeholder="Enter available quantity"
+            defaultValue={user.stockStatus}
             required
           />
         </div>
@@ -177,7 +189,7 @@ const Add = () => {
           <input
             type="email"
             name="userEmail"   
-            value={user.email}    
+            value={authUser?.email}    
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-200 cursor-not-allowed"
           />
@@ -189,7 +201,7 @@ const Add = () => {
           <input
             type="text"
             name="userName"  
-            value={user.displayName}          
+            value={authUser?.displayName}          
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-200 cursor-not-allowed"
           />
@@ -199,11 +211,11 @@ const Add = () => {
           type="submit"
           className="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700"
         >
-          Add Item
+         Update Item
         </button>
       </form>
     </div>
   );
 };
 
-export default Add;
+export default Update;

@@ -4,40 +4,40 @@ import Swal from 'sweetalert2';
 
 const My = () => {
     const itemss = useLoaderData();
-    const [items,setitems]=useState(itemss)
+    const [items, setitems] = useState(itemss)
     const handleDelete = (_id) => {
         Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          cancelButtonColor: "#d33",
-          confirmButtonColor: "#3085d6",
-          confirmButtonText: "Yes, delete it!"
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonColor: "#d33",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!"
         })
-          .then((result) => {
-            if (result.isConfirmed) {
-    
-              fetch(`http://localhost:3000/equi/${_id}`, {
-                method: 'DELETE',
-              })
-                .then(res => res.json())
-                .then(data => {
-                  console.log(data)
-                  if (data.deletedCount > 0) {
-                    Swal.fire({
-                      title: "Deleted!",
-                      text: "Your Equipment has been deleted.",
-                      icon: "success"
-                    });
-                    const remaining=items.filter(i=> i._id !== _id)
-                    setitems(remaining)
-                  }
-    
-                })
-            }
-          });
-      }
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch(`http://localhost:3000/equi/${_id}`, {
+                        method: 'DELETE',
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data)
+                            if (data.deletedCount > 0) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your Equipment has been deleted.",
+                                    icon: "success"
+                                });
+                                const remaining = items.filter(i => i._id !== _id)
+                                setitems(remaining)
+                            }
+
+                        })
+                }
+            });
+    }
     return (
         <div>
 
@@ -57,7 +57,7 @@ const My = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 place-items-center w-11/12 mx-auto my-4 py-7">
                     {/* grid er khetre place-item diye center e ana lage */}
                     {
-                        items.map(item => <div key={item._id}className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
+                        items.map(item => <div key={item._id} className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
 
 
                             <img className=" h-56 w-full  object-cover rounded-xl " src={item.image} alt="" />
@@ -70,14 +70,17 @@ const My = () => {
 
                                 <div className="flex gap-10 items-center">
                                     <p className="btn btn-xs rounded-2xl bg-green-100 border-green-500">Available Stock:{item.stockStatus}</p>
-                                   
+
                                 </div>
                                 <p>{item.description}</p>
                                 <p className="font-bold">Rating: {item.rating}</p>
 
-                                <div className="flex flex-col">
-                                    {/* <Link to={`/updateCoffee/${coffee._id}`}><button className="btn bg-black btn-circle text-white">Update</button></Link> */}
-                                    <button onClick={() => handleDelete(item._id)} className="btn bg-black btn-circle text-white">X</button>
+                                <div className="flex gap-3">
+                                    <Link to={`/equi/item/${item.itemName}`}>
+                                        <button className="btn btn-wide bg-black btn-circle text-white border-none">Update</button>
+                                    </Link>
+
+                                    <button onClick={() => handleDelete(item._id)} className="btn bg-black btn-circle text-white border-none">X</button>
                                 </div>
 
 

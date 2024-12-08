@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import Layout from "../layout/Layout";
 import ViewDetails from "../pages/ViewDetails";
+import Update from "../pages/Update";
 
 
 
@@ -41,6 +42,12 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:3000/equi/${params.id}`)
             },
+            {
+                path: "/equi/item/:itemName",
+                element: <PrivateRoute><Update></Update></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/equi/item/${params.itemName}`)
+            }
+            
 
         ]
     },
