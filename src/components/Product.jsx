@@ -1,7 +1,9 @@
 import React from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { Link, useLocation } from 'react-router-dom';
 
 const Product = ({ itemOne }) => {
+    const location = useLocation();
     return (
         <div className='w-full h-full'>
             <div className="bg-opacity-55 px-2 py-3 text-black  bg-[#61e917]  items-center flex flex-col mb-5 shadow-lg outline outline-offset-8 outline-white outline-1">
@@ -52,6 +54,8 @@ const Product = ({ itemOne }) => {
                         )
                         }
                     </div>
+
+                    < Link to={`/equi/${itemOne._id}`} state={location.pathname} className="btn rounded-3xl tracking-widest text-lg btn-wide ">Details</Link>
 
                     {/* <div className="flex items-center">
 

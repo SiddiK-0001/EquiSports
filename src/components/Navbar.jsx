@@ -33,6 +33,7 @@ const Navbar = () => {
         <>
             <NavLink to="/">Home</NavLink>
             <NavLink to="/all">All Equipment</NavLink>
+            <NavLink to="/about">About Us</NavLink>
             {
                 user &&
                 <>
@@ -43,7 +44,7 @@ const Navbar = () => {
             }
         </>
     return (
-        <div className="text-white px-2">
+        <div className="text-white px-6">
 
             <div className="navbar ">
                 <div className="navbar-start">

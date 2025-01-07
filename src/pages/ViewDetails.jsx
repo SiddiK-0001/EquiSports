@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { Link, useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
 
 const ViewDetails = () => {
     const item = useLoaderData();
+    const location = useLocation();
+
+    const from = location.state;
     
     // console.log(item)
 
@@ -65,7 +68,7 @@ const ViewDetails = () => {
                         )
                         }
                     </div>
-               <Link to="/all"> <button className='btn mt-3 rounded-3xl text-xl'>Back</button></Link>
+               <Link to={from}> <button className='btn mt-3 rounded-3xl text-xl'>Back</button></Link>
 
                 </div>
 

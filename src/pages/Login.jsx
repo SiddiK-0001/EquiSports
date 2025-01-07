@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { sendPasswordResetEmail } from 'firebase/auth';
@@ -22,6 +22,10 @@ const Login = () => {
     const [eye, setEye] = useState(false)
     const emailRefoo = useRef();
     const navigate = useNavigate();
+    const location = useLocation()
+    // console.log(location)
+
+    const from = location.state || "/"
 
     const { loginUser,signInWithGoogle } = useContext(Authcontext)
 
@@ -41,7 +45,7 @@ const Login = () => {
            
 
             setTimeout(() => {
-                navigate('/');
+                navigate(from);
             }, 1000);
 
         })
@@ -89,7 +93,7 @@ const Login = () => {
 
             })
             .catch(error => {
-                // setError(error.message)
+                setError(error.message)
             })
 
 

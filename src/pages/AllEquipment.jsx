@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 
 const AllEquipment = () => {
     const initialItems = useLoaderData();
     const [items, setItems] = useState(initialItems);
+    const location = useLocation();
 
     const handleSort = () => {  
         const sortedItems = [...items].sort((a, b) => b.price - a.price);
@@ -58,7 +59,7 @@ const AllEquipment = () => {
                                 </td>
                                 <td className="hidden md:table-cell">${item.price}</td>
                                 <th>
-                                    <Link to={`/equi/${item._id}`}>
+                                    <Link to={`/equi/${item._id}`} state={location.pathname}>
                                     <button className="btn bg-[#71ff19b8] btn-sm rounded-3xl">Details</button>
                                     </Link>
                                 </th>

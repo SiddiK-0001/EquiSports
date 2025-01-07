@@ -8,7 +8,7 @@ const My = () => {
     const [items, setitems] = useState([])
     useEffect(() => {
         if (!loading && user?.email) {
-            fetch(`http://localhost:3000/equi?userEmail=${user.email}`) 
+            fetch(`https://server-site-phi.vercel.app/equis?userEmail=${user.email}`) 
                 .then(res => res.json())
                 .then(data => setitems(data));
         }
@@ -26,7 +26,7 @@ const My = () => {
             .then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:3000/equi/${_id}`, {
+                    fetch(`https://server-site-phi.vercel.app/equi/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())

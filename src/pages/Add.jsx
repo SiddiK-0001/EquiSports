@@ -3,7 +3,7 @@ import { Authcontext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Add = () => {
-  const {user}= useContext(Authcontext);
+  const { user } = useContext(Authcontext);
 
 
 
@@ -20,7 +20,8 @@ const Add = () => {
     const processingTime = e.target.processingTime.value;
     const stockStatus = e.target.stockStatus.value;
 
-    const formData ={ itemName,image,
+    const formData = {
+      itemName, image,
       categoryName,
       description,
       price,
@@ -32,27 +33,27 @@ const Add = () => {
     }
 
 
-    fetch("http://localhost:3000/equi", {
+    fetch("https://server-site-phi.vercel.app/equi", {
       method: "POST",
       headers: {
-         "content-Type": "application/json"
-         },
+        "content-Type": "application/json"
+      },
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
       .then((data) => {
-        
-      //  console.log(data)
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: "Successfully Added",
 
-                        icon: "success"
-                    });
-                    
-                }
+        //  console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Successfully Added",
+
+            icon: "success"
+          });
+
+        }
       })
-     
+
   };
   return (
     <div>
@@ -70,14 +71,14 @@ const Add = () => {
           <label className="form-control font-medium mb-1">Image URL</label>
           <input
             type="text"
-            name="image"          
+            name="image"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter image URL"
             required
           />
         </div>
 
-     
+
         <div>
           <label className="form-control font-medium mb-1">Item Name</label>
           <input
@@ -89,84 +90,84 @@ const Add = () => {
           />
         </div>
 
-       
+
         <div>
           <label className="form-control font-medium mb-1">Category Name</label>
           <input
             type="text"
-            name="categoryName"  
+            name="categoryName"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter category name"
             required
           />
         </div>
 
-       
+
         <div>
           <label className="form-control font-medium mb-1">Description</label>
           <textarea
-            name="description"            
+            name="description"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter item description"
             required
           />
         </div>
 
-       
+
         <div>
           <label className="form-control font-medium mb-1">Price</label>
           <input
             type="number"
-            name="price"                      
+            name="price"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter price"
             required
           />
         </div>
 
-        
+
         <div>
           <label className="form-control font-medium mb-1">Rating</label>
           <input
             type="text"
-            name="rating"                      
+            name="rating"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter rating (1-5)"
             required
-            
+
           />
         </div>
 
-        
+
         <div>
           <label className="form-control font-medium mb-1">Customization</label>
           <input
             type="text"
-            name="customization"                       
+            name="customization"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter customization details"
             required
           />
         </div>
 
-      
+
         <div>
           <label className="form-control font-medium mb-1">Processing Time</label>
           <input
             type="text"
-            name="processingTime"                      
+            name="processingTime"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter processing/delivery time"
             required
           />
         </div>
 
-      
+
         <div>
           <label className="form-control font-medium mb-1">Stock Status</label>
           <input
             type="number"
-            name="stockStatus"                     
+            name="stockStatus"
             className="w-full border rounded px-3 py-2"
             placeholder="Enter available quantity"
             required
@@ -178,8 +179,8 @@ const Add = () => {
           <label className="form-control font-medium mb-1">User Email</label>
           <input
             type="email"
-            name="userEmail"   
-            value={user.email}    
+            name="userEmail"
+            value={user.email}
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-200 cursor-not-allowed"
           />
@@ -190,8 +191,8 @@ const Add = () => {
           <label className="form-control font-medium mb-1">User Name</label>
           <input
             type="text"
-            name="userName"  
-            value={user.displayName}          
+            name="userName"
+            value={user.displayName}
             readOnly
             className="w-full border rounded px-3 py-2 bg-gray-200 cursor-not-allowed"
           />

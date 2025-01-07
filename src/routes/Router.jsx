@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import Layout from "../layout/Layout";
 import ViewDetails from "../pages/ViewDetails";
 import Update from "../pages/Update";
+import About from "../pages/About";
+
 
 
 
@@ -20,12 +22,18 @@ const Router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:3000/equi')
+                loader: () => fetch('https://server-site-phi.vercel.app/equis')
+            },
+        
+            {
+                path: "/about",
+                element: <About></About>,
+                
             },
             {
                 path: "/all",
                 element: <AllEquipment></AllEquipment>,
-                loader: () => fetch('http://localhost:3000/equi')
+                loader: () => fetch('https://server-site-phi.vercel.app/equis')
             },
             {
                 path: "/add",
@@ -40,12 +48,13 @@ const Router = createBrowserRouter([
             {
                 path: "/equi/:id",
                 element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/equi/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-site-phi.vercel.app/equiss/${params.id}`)
             },
+        
             {
                 path: "/equi/item/:itemName",
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/equi/item/${params.itemName}`)
+                loader: ({ params }) => fetch(`https://server-site-phi.vercel.app/equi/item/${params.itemName}`)
             }
             
 

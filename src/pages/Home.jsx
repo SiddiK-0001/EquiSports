@@ -59,7 +59,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 p-4 text-center text-3xl">
+      <div className=" grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 p-6 text-center text-3xl">
         <div className="bg-[#010535] text-white p-4 rounded shadow col-span-2 row-span-2 bg-[url('https://i.pinimg.com/236x/26/8d/a6/268da6a56d727808bcd316e393fd8515.jpg')] bg-blend-overlay bg-opacity-90 flex justify-center items-center">
           Cricket
         </div>
@@ -91,7 +91,7 @@ const Home = () => {
 
       <div className="bg-cover bg-center bg-[url('https://i.pinimg.com/736x/b9/5e/34/b95e3402e0301cf3f3ab308147d81bcf.jpg')] bg-blend-overlay bg-black bg-opacity-75">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 place-items-center w-11/12 mx-auto my-4 py-7">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 place-items-center px-6 mx-auto my-4 py-7">
 
           {
             items.slice(0, 8).map(item => <Product key={item._id} itemOne={item}></Product>)
@@ -167,7 +167,7 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Cricket World Cup</h3>
               <p class="text-gray-600 mb-4">Gear up for the biggest cricket event. Get the best cricket gear now!</p>
-              <button class="btn btn-primary">Shop Now</button>
+              
             </div>
           </div>
 
@@ -179,7 +179,7 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Football Tips</h3>
               <p class="text-gray-600 mb-4">Learn expert techniques to improve your football game.</p>
-              <button class="btn btn-secondary">Read More</button>
+
             </div>
           </div>
 
@@ -191,7 +191,7 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Badminton Championships</h3>
               <p class="text-gray-600 mb-4">Check out our badminton rackets for the upcoming championships.</p>
-              <button class="btn btn-primary">Shop Now</button>
+              
             </div>
           </div>
 
@@ -203,7 +203,7 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Basketball Basics</h3>
               <p class="text-gray-600 mb-4">Discover the fundamentals of basketball to improve your skills.</p>
-              <button class="btn btn-secondary">Read More</button>
+
             </div>
           </div>
 
@@ -215,7 +215,7 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Sports Apparel Trends</h3>
               <p class="text-gray-600 mb-4">Stay stylish on the field with our latest sportswear collection.</p>
-              <button class="btn btn-primary">Shop Now</button>
+              
             </div>
           </div>
 
@@ -226,11 +226,45 @@ const Home = () => {
             <div>
               <h3 class="text-xl font-bold mb-2">Upcoming Marathons</h3>
               <p class="text-gray-600 mb-4">Get your running shoes ready for the next marathon event.</p>
-              <button class="btn btn-secondary">Read More</button>
+
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+{/* FAQ Section */}
+<div className="bg-gray-100 p-6 text-black mb-8">
+  <h2 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">How can I toggle between light and dark mode?</h3>
+      <p className="text-gray-600">You can use the theme toggle switch at the top of the page. Simply click the switch to switch between light and dark themes.</p>
+    </div>
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">What sports categories do you offer?</h3>
+      <p className="text-gray-600">We provide categories like Cricket, Football, Badminton, Basketball, and Clothing. Explore the "Categories We Provide" section for more details.</p>
+    </div>
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">Can I view customer reviews?</h3>
+      <p className="text-gray-600">Yes! Scroll down to the "What Our Customers Say" section to read reviews from our valued customers.</p>
+    </div>
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">Where can I find the latest products?</h3>
+      <p className="text-gray-600">Visit the "Product Section" below the categories to explore our latest offerings, including cricket bats, footballs, and more.</p>
+    </div>
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">Do you host events?</h3>
+      <p className="text-gray-600">Yes, check out the "Explore the World of Sports" section to learn about our featured events like the Cricket World Cup, Basketball Basics, and more.</p>
+    </div>
+    <div className="bg-white shadow p-4 rounded">
+      <h3 className="text-xl font-semibold mb-2">How can I contact customer support?</h3>
+      <p className="text-gray-600">For support or inquiries, use the contact form available on our website, or reach out to us via email or phone. Details can be found in the footer.</p>
+    </div>
+  </div>
+</div>
 
 
 

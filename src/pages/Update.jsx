@@ -34,7 +34,7 @@ const Update = () => {
       stockStatus}
 
 
-    fetch(`http://localhost:3000/equi/${user._id}`, {
+    fetch(`https://server-site-phi.vercel.app/equi/${user._id}`, {
       method: "PUT",
       headers: {
          "content-Type": "application/json"
